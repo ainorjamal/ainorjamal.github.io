@@ -206,7 +206,10 @@ ul {
   color: white;
   text-decoration: none;
 }
-
+.navbar-brand:hover {
+  color: white;
+  text-shadow: 2px 2px 8px #ffffff;
+}
 .resume .resume-title {
   color: #d5cdff;
   font-size: 26px;
