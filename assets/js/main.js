@@ -21,7 +21,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // ===== Lightbox Functionality =====
   initLightbox();
+  
+  // ===== Skills Toggle =====
+  initSkillsToggle();
 });
+
+/**
+ * Initialize Skills Toggle functionality
+ */
+function initSkillsToggle() {
+  const toggleBtn = document.getElementById('skills-toggle');
+  const skillsWrapper = document.querySelector('.skills-wrapper');
+  
+  if (toggleBtn && skillsWrapper) {
+    toggleBtn.addEventListener('click', () => {
+      const isExpanded = skillsWrapper.classList.toggle('expanded');
+      toggleBtn.classList.toggle('expanded');
+      
+      const btnText = toggleBtn.querySelector('span');
+      if (btnText) {
+        btnText.textContent = isExpanded ? 'See Less' : 'See More';
+      }
+    });
+  }
+}
 
 /**
  * Initialize Lightbox for gallery and portfolio images

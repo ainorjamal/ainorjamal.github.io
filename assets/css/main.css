@@ -497,6 +497,74 @@ ul {
   color: var(--text-primary);
 }
 
+/* Skills Collapsible */
+.skills-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.skills-wrapper:not(.expanded) {
+  max-height: 380px;
+}
+
+.skills-wrapper.expanded {
+  max-height: none;
+}
+
+.skill-hidden {
+  opacity: 0.3;
+  transition: opacity 0.4s ease;
+}
+
+.skills-wrapper.expanded .skill-hidden {
+  opacity: 1;
+}
+
+.skills-fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(to top, var(--bg-dark) 0%, transparent 100%);
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.skills-wrapper.expanded .skills-fade {
+  opacity: 0;
+}
+
+.skills-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.skills-toggle-btn:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-light);
+  background: rgba(99, 102, 241, 0.1);
+}
+
+.skills-toggle-btn i {
+  font-size: 0.75rem;
+  transition: transform 0.3s ease;
+}
+
+.skills-toggle-btn.expanded i {
+  transform: rotate(180deg);
+}
+
 @media (max-width: 576px) {
   .skills_item {
     width: 120px;
