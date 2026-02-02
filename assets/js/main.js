@@ -76,10 +76,11 @@ function initLightbox() {
     wrap.addEventListener('click', () => {
       const imagesData = item.dataset.galleryImages;
       const title = item.querySelector('.portfolio-info h4')?.textContent || 'Project Gallery';
+      const isMobileApp = wrap.classList.contains('portfolio-thumb-mobile');
       
       if (imagesData) {
         currentGalleryImages = imagesData.split(',').map(src => src.trim());
-        openGalleryModal(title, currentGalleryImages);
+        openGalleryModal(title, currentGalleryImages, isMobileApp);
       }
     });
   });
@@ -97,9 +98,16 @@ function initLightbox() {
     document.body.style.overflow = '';
   }
 
-  function openGalleryModal(title, images) {
+  function openGalleryModal(title, images, isMobile = false) {
     galleryModalTitle.textContent = title;
     galleryGrid.innerHTML = '';
+    
+    // Toggle mobile gallery style
+    if (isMobile) {
+      galleryGrid.classList.add('gallery-mobile');
+    } else {
+      galleryGrid.classList.remove('gallery-mobile');
+    }
     
     images.forEach((src, index) => {
       const item = document.createElement('div');
