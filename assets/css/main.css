@@ -860,6 +860,7 @@ ul {
 /* Portfolio GitHub Button */
 .portfolio-buttons {
   display: flex;
+  justify-content: center;
   gap: 10px;
   margin-top: 16px;
   flex-wrap: wrap;
